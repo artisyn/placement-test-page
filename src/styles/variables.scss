@@ -7,6 +7,7 @@ $poppins: 'Poppins', sans-serif;
 
 $navMain: rgb(182, 210, 219);
 $navLight: rgb(254, 254, 254);
+$navLightHover: rgb(186, 185, 185);
 $mainDark: rgb(33, 33, 33);
 $mainLight: rgb(247, 246, 245);
 $buttonColor: rgb(232, 205, 186);
@@ -25,13 +26,26 @@ $border-radius: 0.7rem;
 
 $headerHeight: 6.25rem;
 
+// media breakpoints
+
+$small: 550px;
+$medium: 768px;
+$large: 1200px;
+
 //mixins
 
-@mixin breakpoint($point) {
-	@if $point == md {
-		@media (min-width: 48em) {
-			@content;
-		}
-	}
-	//md = 768px
-}
+// @mixin breakpoint($point) {
+// 	@if $point == sm {
+// 		@media (max-width: $small) {
+// 			@content;
+// 		}
+// 	} @else if $point = md {
+// 		@media (max-width: $medium) {
+// 			@content;
+// 		}
+// 	} @else if $point = lg {
+// 		@media (max-width: $large) {
+// 			@content;
+// 		}
+// 	}
+// }

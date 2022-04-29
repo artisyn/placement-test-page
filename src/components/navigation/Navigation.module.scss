@@ -1,15 +1,64 @@
+@import '../../styles/variables.scss';
+@import '../../styles/mixins.scss';
+
 .navigation {
 	padding: 1rem;
-	border: 1px solid red;
 	min-height: 5rem;
-	display: flex;
-	align-items: center;
-	justify-content: space-between;
+	@include displayFlexSpaceBetween;
+	background-color: $navMain;
+	// @include breakpoint(lg) {
+	// 	padding-right: 4rem;
+	// }
+	@media only screen and (min-width: 1200px) {
+		padding-right: 4rem;
+	}
+	.logo {
+		background-color: rgb(183, 183, 183);
+		width: 6rem;
+		height: 3rem;
+		color: rgb(194, 126, 0);
+		padding: 1rem;
+		font-size: 1.2rem;
+		font-weight: bold;
+		border-radius: 1rem;
+		@include displayFlexCenter;
+	}
 
 	.pages__container {
-		display: flex;
-		align-items: center;
-		justify-content: flex-end;
-		gap: 1rem;
+		@include displayFlexEnd;
+		gap: 1.5rem;
+		margin-right: 2rem;
+
+		.link {
+			font-size: 1.3rem;
+			font-weight: bold;
+			letter-spacing: 0.1rem;
+			color: $navLight;
+			text-decoration: none;
+			cursor: pointer;
+			transition: all ease-in 0.2s;
+			&:hover {
+				color: $navLightHover;
+				transform: scale(1.05);
+			}
+		}
+		@media only screen and (max-width: 600px) {
+			display: none;
+		}
+	}
+	.burger {
+		font-size: 3rem;
+		font-weight: bold;
+		display: none;
+		cursor: pointer;
+		transition: all ease-in 0.3s;
+		&:hover {
+			transform: scale(1.05);
+			color: $navLight;
+		}
+
+		@media only screen and (max-width: 600px) {
+			@include displayFlexCenter;
+		}
 	}
 }
