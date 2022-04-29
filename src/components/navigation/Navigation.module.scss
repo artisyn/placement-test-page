@@ -1,0 +1,15 @@
+.navigation {
+	padding: 1rem;
+	border: 1px solid red;
+	min-height: 5rem;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+
+	.pages__container {
+		display: flex;
+		align-items: center;
+		justify-content: flex-end;
+		gap: 1rem;
+	}
+}

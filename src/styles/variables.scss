@@ -1,0 +1,37 @@
+//fonts
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,800;1,100;1,200;1,300;1,500;1,600&display=swap');
+
+$poppins: 'Poppins', sans-serif;
+
+//colors
+
+$navMain: rgb(182, 210, 219);
+$navLight: rgb(254, 254, 254);
+$mainDark: rgb(33, 33, 33);
+$mainLight: rgb(247, 246, 245);
+$buttonColor: rgb(232, 205, 186);
+$buttonHover: rgb(180, 159, 145);
+
+//spacing
+
+$spacing-md: 1rem;
+$spacing-lng: 2rem;
+
+//border-radius
+
+$border-radius: 0.7rem;
+
+//header height
+
+$headerHeight: 6.25rem;
+
+//mixins
+
+@mixin breakpoint($point) {
+	@if $point == md {
+		@media (min-width: 48em) {
+			@content;
+		}
+	}
+	//md = 768px
+}
