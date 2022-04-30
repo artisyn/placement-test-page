@@ -1,6 +1,10 @@
+@import '../../styles/variables.scss';
+
 .page__container {
-	background-color: rgb(222, 232, 240);
+	padding: 5rem 1rem 1rem 1rem; // 5rem -  adjust for sticky nav
+	background-color: $mainLight;
 	display: grid;
 	place-items: center;
-	height: 100vh;
+	min-height: 100vh;
+	color: $mainDark;
 }

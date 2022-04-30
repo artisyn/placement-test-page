@@ -1,16 +1,17 @@
 @import '../../styles/variables.scss';
-@import '../../styles/mixins.scss';
 
 .navigation {
+	position: fixed;
+	z-index: 100;
+	top: 0;
+	width: 100%;
 	padding: 1rem;
-	min-height: 5rem;
+	height: 5rem;
 	@include displayFlexSpaceBetween;
 	background-color: $navMain;
-	// @include breakpoint(lg) {
-	// 	padding-right: 4rem;
-	// }
-	@media only screen and (min-width: 1200px) {
-		padding-right: 4rem;
+
+	@media only screen and (min-width: $large) {
+		// padding-right: 20vw;
 	}
 	.logo {
 		background-color: rgb(183, 183, 183);
@@ -28,6 +29,7 @@
 		@include displayFlexEnd;
 		gap: 1.5rem;
 		margin-right: 2rem;
+		transition: all ease-in 0.2s;
 
 		.link {
 			font-size: 1.3rem;
@@ -42,9 +44,41 @@
 				transform: scale(1.05);
 			}
 		}
-		@media only screen and (max-width: 600px) {
-			display: none;
+		.active {
+			text-decoration: underline;
 		}
+
+		@media only screen and (max-width: $medium) {
+			transform: translateY(-10rem);
+			position: absolute;
+			z-index: 10;
+		}
+
+		.close__btn {
+			position: absolute;
+			top: 0.8rem;
+			right: 0.8rem;
+			color: white;
+			font-size: 3rem;
+			font-weight: bold;
+			cursor: pointer;
+			transition: all ease 0.1s;
+			&:hover {
+				color: red;
+			}
+		}
+	}
+	.menu__open {
+		opacity: 1;
+		@include displayFlexStart;
+		position: absolute;
+		left: 0;
+		top: 10rem;
+		flex-direction: column;
+		padding-top: 6rem;
+		width: 100vw;
+		height: 100vh;
+		background-color: rgba(0, 0, 0, 0.8);
 	}
 	.burger {
 		font-size: 3rem;
@@ -57,8 +91,11 @@
 			color: $navLight;
 		}
 
-		@media only screen and (max-width: 600px) {
+		@media only screen and (max-width: $medium) {
 			@include displayFlexCenter;
 		}
+	}
+	.no__opacity {
+		opacity: 0;
 	}
 }

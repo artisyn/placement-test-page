@@ -1,8 +1,10 @@
+@import '../styles/variables.scss';
+
 .main__container {
 	border: 2px solid black;
 	border-radius: 2rem;
 	padding: 3rem;
-	display: flex;
-	align-items: center;
-	justify-content: center;
+	@include displayFlexCenter;
+	flex-direction: column;
+	gap: 4rem;
 }
