@@ -3,4 +3,14 @@
 .App {
 	font-family: $poppins;
 	background-color: $mainLight;
+	::-moz-selection {
+		/* Code for Firefox */
+		color: $mainLight;
+		background: $navMain;
+	}
+
+	::selection {
+		color: $mainLight;
+		background: $navMain;
+	}
 }

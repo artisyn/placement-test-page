@@ -4,7 +4,8 @@
 	padding: 5rem 1rem 1rem 1rem; // 5rem -  adjust for sticky nav
 	background-color: $mainLight;
 	display: grid;
-	place-items: center;
+	justify-items: center;
+	align-items: start;
 	min-height: 100vh;
 	color: $mainDark;
 }

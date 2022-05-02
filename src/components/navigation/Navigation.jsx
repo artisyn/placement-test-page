@@ -49,7 +49,7 @@ function Navigation() {
 				</Link>
 				<Link
 					onClick={() => changePage('test')}
-					className={`${classes.link} ${
+					className={`${classes.link} ${classes.link__main} ${
 						currentPage === 'test' ? classes.active : ''
 					}`}
 					to={'/test'}

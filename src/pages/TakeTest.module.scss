@@ -1,8 +1,31 @@
+@import '../styles/variables.scss';
+
 .main__container {
-	border: 2px solid black;
-	border-radius: 2rem;
+	margin-top: 2rem;
+	border: 1px solid black;
 	padding: 3rem;
 	display: flex;
-	align-items: center;
+	align-items: flex-start;
 	justify-content: center;
+	min-width: 60vw;
+	max-width: $content-width;
+	min-height: 100vh;
+
+	.btn__start {
+		outline: none;
+		border: none;
+		color: $mainBlue;
+		padding: 0.5rem 1rem;
+		font-size: 2rem;
+		font-weight: bold;
+		letter-spacing: 0.1rem;
+		background-color: $buttonColor;
+		border-radius: $border-radius;
+		cursor: pointer;
+		transition: all ease 0.2s;
+		&:hover {
+			background-color: $buttonHover;
+			transform: scale(1.05);
+		}
+	}
 }

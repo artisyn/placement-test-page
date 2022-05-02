@@ -4,9 +4,13 @@ import classes from './TestGuide.module.scss';
 export default function TestGuide() {
 	return (
 		<div className={classes.main__container}>
-			<h1>TestGuide</h1>
+			<h1>Test Guide</h1>
 
-			<h2>General Testing Tips</h2>
+			<h2>
+				<span className={classes.text__heading}>
+					General Testing Tips
+				</span>
+			</h2>
 			<p>
 				There are two keys to success when taking any standardized test:
 				knowing the content, and knowing the form. If you want to work
@@ -15,7 +19,10 @@ export default function TestGuide() {
 				though, if you want to know the form of the exam and the most
 				effective test-taking strategies for the Accuplacer.
 			</p>
-			<h2>Tip #1: Take Your Time</h2>
+			<h2>
+				<span className={classes.text__number}>#1:</span>
+				<span className={classes.text__heading}>Take Your Time</span>
+			</h2>
 			<p>
 				The single biggest advantage you have in the Accuplacer is time.
 				Since it is an untimed test, you have all the time you could ask
@@ -33,7 +40,10 @@ export default function TestGuide() {
 				need more time.
 			</p>
 
-			<h2>Tip #2: Breathe</h2>
+			<h2>
+				<span className={classes.text__number}>#2:</span>
+				<span className={classes.text__heading}>Breathe</span>
+			</h2>
 			<p>
 				Nearly everyone gets nervous when taking a test. It’s natural.
 				If you feel overwhelmed during the exam, take a few deep
@@ -44,7 +54,12 @@ export default function TestGuide() {
 				into focusing on doing your best.
 			</p>
 
-			<h2>Tip #3: Do the Sample Questions</h2>
+			<h2>
+				<span className={classes.text__number}>#3:</span>
+				<span className={classes.text__heading}>
+					Do the Sample Questions
+				</span>
+			</h2>
 			<p>
 				Before each Accuplacer test, you will be given 1-2 sample
 				questions so that you understand the format. Take these sample
@@ -55,7 +70,12 @@ export default function TestGuide() {
 				way to go! You’re right on track.
 			</p>
 
-			<h2>Tip #4: Eliminate Obvious Outliers</h2>
+			<h2>
+				<span className={classes.text__number}>#4:</span>
+				<span className={classes.text__heading}>
+					Eliminate Obvious Outliers
+				</span>
+			</h2>
 			<p>
 				As with any multiple choice test, each question on the
 				Accuplacer usually has 1-2 multiple choice options that will
