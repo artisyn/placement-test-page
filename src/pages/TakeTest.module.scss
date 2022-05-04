@@ -10,22 +10,4 @@
 	min-width: 60vw;
 	max-width: $content-width;
 	min-height: 100vh;
-
-	.btn__start {
-		outline: none;
-		border: none;
-		color: $mainBlue;
-		padding: 0.5rem 1rem;
-		font-size: 2rem;
-		font-weight: bold;
-		letter-spacing: 0.1rem;
-		background-color: $buttonColor;
-		border-radius: $border-radius;
-		cursor: pointer;
-		transition: all ease 0.2s;
-		&:hover {
-			background-color: $buttonHover;
-			transform: scale(1.05);
-		}
-	}
 }

@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import classes from './TakeTest.module.scss';
 import Test from '../components/test/Test';
+import TestSelector from '../components/testSelector/TestSelector';
 
 function TakeTest() {
 	const [testStage, setTestStage] = useState('start');
@@ -12,16 +13,7 @@ function TakeTest() {
 
 	return (
 		<div className={classes.main__container}>
-			{testStage === 'start' ? (
-				<button
-					onClick={() => startTest()}
-					className={classes.btn__start}
-				>
-					Start Test
-				</button>
-			) : (
-				''
-			)}
+			{testStage === 'start' ? <TestSelector /> : ''}
 			{testStage === 'test' ? <Test /> : ''}
 			{testStage === 'finish' ? (
 				<div>

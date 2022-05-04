@@ -1,0 +1,95 @@
+@import '../../styles/variables.scss';
+
+.selector__container {
+	h2 {
+		letter-spacing: 0.1rem;
+	}
+	padding: 1rem;
+	border: 1px solid brown;
+	@include displayFlexCenter;
+	flex-direction: column;
+	gap: 1rem;
+
+	.selector__options {
+		@include displayFlexCenter;
+		gap: 1rem;
+		@media only screen and (max-width: $large) {
+			flex-direction: column;
+		}
+
+		.selector__option {
+			@include displayFlexCenter;
+			gap: 0.5rem;
+			padding: 0.5rem;
+			font-size: 1.3rem;
+			font-weight: 500;
+			font-style: italic;
+			label {
+				cursor: pointer;
+			}
+
+			.selector__letter {
+				font-weight: bold;
+			}
+			input {
+				cursor: pointer;
+				width: 1.2rem;
+				height: 1.2rem;
+			}
+		}
+		.selected {
+			background-color: #f1d9c5;
+		}
+		.disabled {
+			position: relative;
+			pointer-events: none;
+			&::after {
+				content: 'Inactive';
+				position: absolute;
+				width: 3rem;
+				height: 1.5rem;
+				top: -1.3rem;
+				left: 1rem;
+				font-size: 0.9rem;
+				color: grey;
+			}
+		}
+	}
+	.button__container {
+		@include displayFlexCenter;
+		gap: 1rem;
+		flex-wrap: wrap;
+		.test__text {
+			font-size: 1.3rem;
+			font-style: italic;
+		}
+		.test__level {
+			margin-left: 0.5rem;
+			font-size: 1.4rem;
+			font-weight: bold;
+		}
+
+		.btn__start {
+			outline: none;
+			border: none;
+			color: $mainBlue;
+			padding: 0.5rem 1rem;
+			font-size: 1.6rem;
+			font-weight: bold;
+			letter-spacing: 0.1rem;
+			background-color: $buttonColor;
+			border-radius: $border-radius;
+			cursor: pointer;
+			transition: all ease 0.2s;
+			@media only screen and (max-width: $small) {
+				letter-spacing: normal;
+				font-size: 1.4rem;
+				padding: 0.4rem 0.8rem;
+			}
+			&:hover {
+				background-color: $buttonHover;
+				transform: translateX(0.15rem);
+			}
+		}
+	}
+}
