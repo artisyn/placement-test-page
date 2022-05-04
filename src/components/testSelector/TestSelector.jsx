@@ -1,15 +1,23 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
+import { TestLevelContext } from '../../context';
 import classes from '../testSelector/TestSelector.module.scss';
 
-function TestSelector() {
-	const [testLevel, setTestLevel] = useState('A');
+function TestSelector({ startTest }) {
+	const { testLevel, setTestLevel } = useContext(TestLevelContext);
+
+	// const [testLevel, setTestLevel] = useState('');
 
 	const inputHandler = (e) => {
+		console.log(e.target.dataset.letter);
+
 		if (e.target.checked) {
-			setTestLevel(e.target.name);
+			setTestLevel(e.target.dataset.letter);
 		}
-		if (!e.target.checked && e.target.name === 'C') setTestLevel('B');
-		if (!e.target.checked && e.target.name === 'B') setTestLevel('A');
+	};
+
+	const startTestHandler = () => {
+		if (testLevel === '') return;
+		startTest();
 	};
 
 	return (
@@ -17,7 +25,9 @@ function TestSelector() {
 			<h2>Select Test level</h2>
 			<div className={classes.selector__options}>
 				<div
-					className={`${classes.selector__option} ${classes.disabled} ${classes.selected}`}
+					className={`${classes.selector__option} ${
+						testLevel === 'A' ? classes.selected : ''
+					} `}
 				>
 					<label htmlFor="levela">
 						Include level
@@ -26,17 +36,17 @@ function TestSelector() {
 					</label>
 
 					<input
-						type="checkbox"
-						checked={true}
-						name=""
+						onChange={(e) => inputHandler(e)}
+						type="radio"
+						name="level"
 						id="levela"
-						disabled
+						data-letter={'A'}
 					/>
 				</div>
 				<div
-					className={`${classes.selector__option}  ${
-						testLevel === 'C' ? classes.disabled : ''
-					} ${testLevel !== 'A' ? classes.selected : ''}`}
+					className={`${classes.selector__option} ${
+						testLevel === 'B' ? classes.selected : ''
+					} `}
 				>
 					<label htmlFor="levelb">
 						Include level
@@ -46,15 +56,16 @@ function TestSelector() {
 
 					<input
 						onChange={(e) => inputHandler(e)}
-						type="checkbox"
-						name="B"
+						type="radio"
+						name="level"
 						id="levelb"
+						data-letter={'B'}
 					/>
 				</div>
 				<div
 					className={`${classes.selector__option} ${
-						testLevel === 'A' ? classes.disabled : ''
-					} ${testLevel === 'C' ? classes.selected : ''}`}
+						testLevel === 'C' ? classes.selected : ''
+					} `}
 				>
 					<label htmlFor="levelc">
 						Include level
@@ -64,9 +75,10 @@ function TestSelector() {
 
 					<input
 						onChange={(e) => inputHandler(e)}
-						type="checkbox"
-						name="C"
+						type="radio"
+						name="level"
 						id="levelc"
+						data-letter={'C'}
 					/>
 				</div>
 			</div>
@@ -77,7 +89,14 @@ function TestSelector() {
 					<span className={classes.test__level}> {testLevel} </span>
 				</div>
 
-				<button className={classes.btn__start}> Start Test</button>
+				<button
+					onClick={() => startTestHandler()}
+					className={`${classes.btn__start} ${
+						testLevel === '' ? classes.disabled : ''
+					}`}
+				>
+					Start Test
+				</button>
 			</div>
 		</div>
 	);

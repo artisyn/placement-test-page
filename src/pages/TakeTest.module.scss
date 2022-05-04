@@ -1,12 +1,11 @@
 @import '../styles/variables.scss';
 
 .main__container {
-	margin-top: 2rem;
 	border: 1px solid black;
 	padding: 3rem;
-	display: flex;
-	align-items: flex-start;
-	justify-content: center;
+	@media only screen and (max-width: $medium) {
+		padding: 0;
+	}
 	min-width: 60vw;
 	max-width: $content-width;
 	min-height: 100vh;

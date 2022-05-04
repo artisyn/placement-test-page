@@ -1,7 +1,12 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
+import { TestLevelContext } from '../../context';
 import classes from '../test/Test.module.scss';
 
 function Test() {
+	const { testLevel } = useContext(TestLevelContext);
+	// if testLevel === A -->
+	// if testLevel === B -->
+	// if testLevel === C -->
 	const questions = [
 		{
 			question: 'What _____________ when i called?',
@@ -50,6 +55,7 @@ function Test() {
 
 	return (
 		<div className={classes.test__container}>
+			<h2>Test difficulty is {testLevel}</h2>
 			<div className={classes.info__container}>
 				<h2>Question No.</h2>
 				<span className={classes.question__no}>{currentQuestion}</span>

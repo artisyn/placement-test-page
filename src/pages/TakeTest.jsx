@@ -13,7 +13,11 @@ function TakeTest() {
 
 	return (
 		<div className={classes.main__container}>
-			{testStage === 'start' ? <TestSelector /> : ''}
+			{testStage === 'start' ? (
+				<TestSelector startTest={startTest} />
+			) : (
+				''
+			)}
 			{testStage === 'test' ? <Test /> : ''}
 			{testStage === 'finish' ? (
 				<div>
