@@ -1,9 +1,16 @@
 import React, { useState, useContext } from 'react';
-import { TestLevelContext } from '../../context';
+import { TestLevelContext, UserAnswersContext } from '../../context';
 import classes from '../test/Test.module.scss';
+import { HiArrowLeft, HiArrowRight } from 'react-icons/hi';
 
 function Test() {
 	const { testLevel } = useContext(TestLevelContext);
+	const { userAnswers, setUserAnswers } = useContext(UserAnswersContext);
+
+	const questionsObj = { A: ['a', 'a'], B: ['b', 'b'], C: ['c', 'c'] };
+	console.log(questionsObj[testLevel]);
+	console.log(userAnswers);
+
 	// if testLevel === A -->
 	// if testLevel === B -->
 	// if testLevel === C -->
@@ -51,13 +58,23 @@ function Test() {
 			correct: 'What kind of fruit',
 		},
 	];
-	const [currentQuestion, setQurrentQuestion] = useState(0);
+	const [currentQuestion, setQurrentQuestion] = useState(1);
 
 	return (
 		<div className={classes.test__container}>
-			<h2>Test difficulty is {testLevel}</h2>
+			<div className={classes.candidate__container}>
+				<div className={classes.candidate}>
+					Name :
+					<span className={classes.name}> {'John Johnson'} </span>
+				</div>
+				<div className={classes.difficulty__container}>
+					Test difficulty :
+					<span className={classes.difficulty}> {testLevel} </span>
+				</div>
+			</div>
+
 			<div className={classes.info__container}>
-				<h2>Question No.</h2>
+				<span className={classes.info__text}>Question No.</span>
 				<span className={classes.question__no}>{currentQuestion}</span>
 				<span> / </span>
 				<span className={classes.question__no}>{questions.length}</span>
@@ -67,40 +84,53 @@ function Test() {
 				<h2>{questions[currentQuestion].question}</h2>
 
 				<div className={classes.questions__container}>
-					<div>
+					<div className={`${classes.question__option}`}>
 						<label htmlFor="1">
 							{questions[currentQuestion].answer1}
 						</label>
 						<input type="radio" name="x" id="1" />
 					</div>
-					<div>
+					<div className={`${classes.question__option}`}>
 						<label htmlFor="2">
 							{questions[currentQuestion].answer2}
 						</label>
 						<input type="radio" name="x" id="2" />
 					</div>
-					<div>
+					<div className={`${classes.question__option}`}>
 						<label htmlFor="3">
 							{questions[currentQuestion].answer3}
 						</label>
 						<input type="radio" name="x" id="3" />
 					</div>
-					<div>
+					<div className={`${classes.question__option}`}>
 						<label htmlFor="4">
 							{questions[currentQuestion].answer4}
 						</label>
 						<input type="radio" name="x" id="4" />
 					</div>
 				</div>
-
-				<div>
-					{currentQuestion !== 0 ? <button>Previous</button> : ''}
-					{currentQuestion === questions.length - 1 ? (
-						<button>Finish</button>
-					) : (
-						<button>Next</button>
-					)}
-				</div>
+			</div>
+			<div className={classes.btn__container}>
+				{currentQuestion !== 0 ? (
+					<button
+						className={`${classes.btn__previous} ${classes.btn}`}
+					>
+						<HiArrowLeft className={classes.arrLeft} />
+						Prev
+					</button>
+				) : (
+					''
+				)}
+				{currentQuestion === questions.length - 1 ? (
+					<button className={`${classes.btn__next} ${classes.btn}`}>
+						Finish
+					</button>
+				) : (
+					<button className={`${classes.btn__next} ${classes.btn}`}>
+						Next
+						<HiArrowRight className={classes.arrRight} />
+					</button>
+				)}
 			</div>
 		</div>
 	);

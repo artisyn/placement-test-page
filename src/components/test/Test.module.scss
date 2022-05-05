@@ -3,25 +3,196 @@
 .test__container {
 	@include displayFlexStart;
 	flex-direction: column;
-	border: 2px solid orange;
+	// border: 2px solid orange;
 	min-height: 50vh;
 	width: 100%;
+	gap: 1rem;
+	padding: 0;
+
+	.candidate__container {
+		width: 100%;
+		// border: 1px solid teal;
+		@include displayFlexSpaceBetween;
+		gap: 1rem;
+		@media only screen and (max-width: $medium) {
+			flex-direction: column;
+			gap: 0.5rem;
+		}
+
+		.candidate {
+			font-size: 1.3rem;
+			font-weight: bold;
+			font-style: italic;
+			.name {
+				margin-left: 0.5rem;
+				font-size: 1.4rem;
+				font-style: normal;
+			}
+			@media only screen and (max-width: $medium) {
+				font-size: 1.1rem;
+				.name {
+					font-size: 1.2rem;
+				}
+			}
+		}
+
+		.difficulty__container {
+			font-size: 1.4rem;
+			font-weight: bold;
+			font-style: italic;
+			.difficulty {
+				margin-left: 0.5rem;
+				font-size: 1.6rem;
+				font-style: normal;
+			}
+			@media only screen and (max-width: $medium) {
+				font-size: 1.2rem;
+				.difficulty {
+					font-size: 1.3rem;
+				}
+			}
+		}
+	}
 
 	.info__container {
 		@include displayFlexStart;
 		gap: 1rem;
+		// border: 1px solid red;
+		.info__text {
+			font-size: 1.4rem;
+			font-weight: bold;
+			font-style: italic;
+		}
+
+		.question__no {
+			color: $mainBlue;
+			font-size: 1.7rem;
+			font-weight: bold;
+		}
+
+		@media only screen and (max-width: $medium) {
+			.question__no {
+				font-size: 1.5rem;
+			}
+		}
 	}
 
-	.question__no {
-		color: $mainBlue;
-		font-size: 2rem;
-		font-weight: bold;
-	}
 	.questions__container {
+		width: 100%;
+
+		@media only screen and (min-width: $large) {
+			min-width: 800px;
+		}
 		padding: 1rem;
 		border: 1px solid black;
 		@include displayFlexCenter;
 		flex-direction: column;
 		gap: 1rem;
+
+		.question__option {
+			width: 100%;
+			@include displayFlexSpaceBetween;
+			gap: 0.5rem;
+			padding: 0.5rem;
+			font-size: 1.3rem;
+			font-weight: 500;
+			font-style: italic;
+
+			&:hover {
+				background-color: #f1d9c5;
+				border-radius: $border-radius;
+			}
+
+			label {
+				cursor: pointer;
+			}
+
+			input {
+				cursor: pointer;
+				width: 1.2rem;
+				height: 1.2rem;
+			}
+		}
+
+		.selected {
+			background-color: #f1d9c5;
+			border-radius: $border-radius;
+		}
+	}
+
+	.btn__container {
+		width: 100%;
+		// border: 1px solid green;
+		padding: 1rem 0;
+		max-width: 400px;
+
+		.btn {
+			text-align: center;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			overflow: hidden;
+			position: relative;
+			outline: none;
+			width: 8rem;
+			height: 2.5rem;
+			border: none;
+			color: white;
+			padding: 0.5rem 1rem;
+			font-size: 1.3rem;
+			font-weight: bold;
+			letter-spacing: 0.1rem;
+			background-color: $footerColor;
+			border-radius: $border-radius;
+			cursor: pointer;
+			transition: all ease 0.2s;
+
+			&:hover {
+				background-color: $buttonHover;
+				transform: translateX(0.15rem);
+			}
+		}
+
+		.btn__previous {
+			float: left;
+			&:hover {
+				background-color: $buttonHover;
+				transform: translateX(-0.15rem);
+			}
+
+			.arrLeft {
+				height: 2.5rem;
+				position: absolute;
+				top: 0;
+
+				left: -2rem;
+				transition: all ease-in 0.25s;
+			}
+			&:hover .arrLeft {
+				left: 0.5rem;
+			}
+		}
+		.btn__next {
+			float: right;
+
+			.arrRight {
+				position: absolute;
+				height: 2.5rem;
+				top: 0;
+				right: -2rem;
+				transition: all ease-in 0.25s;
+			}
+			&:hover .arrRight {
+				right: 0.5rem;
+			}
+		}
+
+		@media only screen and (max-width: $medium) {
+			.btn {
+				width: 6.5rem;
+				font-size: 1.1rem;
+				letter-spacing: normal;
+			}
+		}
 	}
 }
