@@ -1,6 +1,35 @@
 @import '../../styles/variables.scss';
 
 .selector__container {
+	.username__container {
+		width: 100%;
+		font-style: italic;
+		font-weight: bold;
+		display: flex;
+		flex-wrap: wrap;
+
+		gap: 0.5rem;
+		.input__container {
+			width: 20rem;
+			@include displayFlexSpaceBetween;
+			gap: 1rem;
+
+			label {
+				cursor: pointer;
+			}
+			input {
+				width: 11rem;
+				height: 2rem;
+				border: none;
+				outline: none;
+				border-radius: $border-radius;
+				background-color: rgb(215, 215, 215);
+				color: $footerColor;
+				font-weight: bold;
+				font-size: 1.3rem;
+			}
+		}
+	}
 	h2 {
 		letter-spacing: 0.1rem;
 		margin: 0;
@@ -47,6 +76,7 @@
 
 			label {
 				cursor: pointer;
+				width: 100%;
 			}
 
 			.selector__letter {
@@ -106,6 +136,20 @@
 
 			&:hover::after {
 				content: 'Choose test level';
+				position: absolute;
+				width: 10rem;
+				height: 1.5rem;
+				top: -1.3rem;
+				left: 0;
+				font-size: 0.9rem;
+				color: rgb(103, 0, 0);
+			}
+		}
+		.noName {
+			position: relative;
+
+			&:hover::after {
+				content: 'Enter your Name';
 				position: absolute;
 				width: 10rem;
 				height: 1.5rem;

@@ -2,13 +2,17 @@ import React, { useState } from 'react';
 import classes from './TakeTest.module.scss';
 import Test from '../components/test/Test';
 import TestSelector from '../components/testSelector/TestSelector';
+import Finish from '../components/finish/Finish';
 
 function TakeTest() {
 	const [testStage, setTestStage] = useState('start');
 
 	const startTest = () => {
 		setTestStage('test');
-		console.log(testStage);
+	};
+
+	const finishTest = () => {
+		setTestStage('finish');
 	};
 
 	return (
@@ -18,17 +22,8 @@ function TakeTest() {
 			) : (
 				''
 			)}
-			{testStage === 'test' ? <Test /> : ''}
-			{testStage === 'finish' ? (
-				<div>
-					Finish Test Yeah
-					<button onClick={() => setTestStage('start')}>
-						Start Over
-					</button>
-				</div>
-			) : (
-				''
-			)}
+			{testStage === 'test' ? <Test finishTest={finishTest} /> : ''}
+			{testStage === 'finish' ? <Finish /> : ''}
 		</div>
 	);
 }

@@ -4,7 +4,7 @@ import classes from '../test/Test.module.scss';
 import { HiArrowLeft, HiArrowRight } from 'react-icons/hi';
 import { questions } from '../../Data';
 
-function Test() {
+function Test({ finishTest }) {
 	const {
 		testLevel,
 		userAnswers,
@@ -22,13 +22,7 @@ function Test() {
 		);
 	}, []);
 
-	useEffect(() => {}, []);
-
-	// console.log(userAnswers);
-	let [currentQuestion, setCurrentQuestion] = useState(0);
-	// console.log(userAnswers)
-	// console.log(currentQuestion);
-	// console.log(questions[testLevel]);
+	let [currentQuestion, setCurrentQuestion] = useState(45);
 
 	const handleRadioChange = (val) => {
 		const objCopy = { ...userAnswers };
@@ -53,7 +47,19 @@ function Test() {
 		if (num >= 86 && num <= 100) return 'Upper Intermediate';
 	};
 	const handleFinish = () => {
-		console.log(userAnswers);
+		// getting date/time string
+
+		const now = new Date();
+		const options = {
+			hour: 'numeric',
+			minute: 'numeric',
+			day: 'numeric',
+			month: 'long', // 2-digit
+			year: 'numeric',
+			weekday: 'long',
+		};
+
+		const intApi = new Intl.DateTimeFormat('en-US', options).format(now);
 		const userCorrectAnswers = questions[testLevel].reduce(
 			(accu, el, i) => {
 				if (userAnswers[i + 1] === el.correct) return accu + 1;
@@ -61,17 +67,17 @@ function Test() {
 			},
 			0
 		);
-		console.log(userCorrectAnswers);
-		const userLevel = determineUsersLevel(userCorrectAnswers);
-		console.log(userLevel);
 
+		const userLevel = determineUsersLevel(userCorrectAnswers);
 		const objCopy = { ...userResults };
 		objCopy.testLevel = testLevel;
 		objCopy.totalCorrect = userCorrectAnswers;
 		objCopy.level = userLevel;
 		objCopy.answers = userAnswers;
+		objCopy.date = intApi;
 		setUserResults(objCopy);
-		console.log(userResults);
+
+		finishTest();
 	};
 
 	return (
@@ -79,7 +85,7 @@ function Test() {
 			<div className={classes.candidate__container}>
 				<div className={classes.candidate}>
 					Name :
-					<span className={classes.name}> {'John Johnson'} </span>
+					<span className={classes.name}> {userResults.name} </span>
 				</div>
 				<div className={classes.difficulty__container}>
 					Test difficulty :
@@ -103,7 +109,6 @@ function Test() {
 			</p>
 
 			<h2>{questions[testLevel][currentQuestion].question}</h2>
-			{/*                  ////////////////////////////////////////////////         */}
 			<div className={classes.questions__container}>
 				<div
 					className={`${classes.question__option} ${
@@ -187,7 +192,6 @@ function Test() {
 					''
 				)}
 			</div>
-			{/* /////////////////////////////////////////////////////////////// */}
 			<div className={classes.btn__container}>
 				{currentQuestion !== 0 ? (
 					<button

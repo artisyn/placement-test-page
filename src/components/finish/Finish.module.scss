@@ -1,0 +1,44 @@
+@import '../../styles/variables.scss';
+
+.finish__container {
+	@include displayFlexCenter;
+	flex-direction: column;
+	gap: 1rem;
+	padding: 1rem;
+	h2 {
+		text-align: center;
+	}
+	.results__container {
+		.result {
+			margin-left: 1rem;
+			font-size: 1.3rem;
+			font-weight: bold;
+			font-style: italic;
+		}
+	}
+
+	.buttons__container {
+		@include displayFlexCenter;
+		gap: 1rem;
+		.mail__btn {
+			width: 11rem;
+			font-size: 1.3rem;
+			font-weight: bold;
+			padding: 0.3rem 0.6rem;
+			border-radius: $border-radius;
+			cursor: pointer;
+			background-color: $buttonColor;
+			border: none;
+			outline: none;
+
+			&:hover {
+				background-color: $buttonHover;
+			}
+
+			@media only screen and (max-width: $medium) {
+				font-size: 1.1rem;
+				width: 8rem;
+			}
+		}
+	}
+}

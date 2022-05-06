@@ -1,7 +1,6 @@
 @import '../styles/variables.scss';
 
 .main__container {
-	// border: 1px solid black;
 	padding: 1rem;
 	@media only screen and (max-width: $medium) {
 		padding: 0;
