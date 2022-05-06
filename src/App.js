@@ -4,24 +4,38 @@ import { BrowserRouter } from 'react-router-dom';
 import Navigation from './components/navigation/Navigation.jsx';
 import PageRoutes from './components/PageRoutes/PageRoutes';
 import Footer from './components/footer/Footer';
-import { TestLevelContext, UserAnswersContext } from '../src/context/index';
+import { PlacementTestContext } from '../src/context/index';
 
 function App() {
 	const [testLevel, setTestLevel] = useState('');
-	const [userAnswers, setUserAnswers] = useState({ a: '' });
+	const [userAnswers, setUserAnswers] = useState({});
+	const [userResults, setUserResults] = useState({
+		testLevel: '',
+		totalCorrect: 0,
+		level: '',
+		answers: {},
+		name: '',
+	});
 
 	return (
-		<UserAnswersContext.Provider value={{ userAnswers, setUserAnswers }}>
-			<TestLevelContext.Provider value={{ testLevel, setTestLevel }}>
-				<BrowserRouter>
-					<div className="App">
-						<Navigation />
-						<PageRoutes />
-						<Footer />
-					</div>
-				</BrowserRouter>
-			</TestLevelContext.Provider>
-		</UserAnswersContext.Provider>
+		<PlacementTestContext.Provider
+			value={{
+				userAnswers,
+				setUserAnswers,
+				testLevel,
+				setTestLevel,
+				userResults,
+				setUserResults,
+			}}
+		>
+			<BrowserRouter>
+				<div className="App">
+					<Navigation />
+					<PageRoutes />
+					<Footer />
+				</div>
+			</BrowserRouter>
+		</PlacementTestContext.Provider>
 	);
 }
 

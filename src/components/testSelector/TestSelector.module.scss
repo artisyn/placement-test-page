@@ -3,6 +3,7 @@
 .selector__container {
 	h2 {
 		letter-spacing: 0.1rem;
+		margin: 0;
 	}
 	margin: 0 auto;
 	padding: 1rem;
@@ -11,7 +12,20 @@
 	gap: 1rem;
 	width: 100%;
 	max-width: $medium;
-
+	.selector__explanation {
+		width: 100%;
+		padding: 0.5rem;
+		p {
+			font-size: 1.1rem;
+			font-weight: bold;
+			font-style: italic;
+			span {
+				font-size: 1.4rem;
+				font-style: normal;
+				margin-left: 0.5rem;
+			}
+		}
+	}
 	.selector__options {
 		width: 100%;
 		@include displayFlexCenter;
@@ -26,6 +40,10 @@
 			font-size: 1.3rem;
 			font-weight: 500;
 			font-style: italic;
+			&:hover {
+				background-color: #f1d9c5;
+				border-radius: $border-radius;
+			}
 
 			label {
 				cursor: pointer;

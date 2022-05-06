@@ -1,64 +1,78 @@
-import React, { useState, useContext } from 'react';
-import { TestLevelContext, UserAnswersContext } from '../../context';
+import React, { useState, useContext, useEffect } from 'react';
+import { PlacementTestContext } from '../../context';
 import classes from '../test/Test.module.scss';
 import { HiArrowLeft, HiArrowRight } from 'react-icons/hi';
+import { questions } from '../../Data';
 
 function Test() {
-	const { testLevel } = useContext(TestLevelContext);
-	const { userAnswers, setUserAnswers } = useContext(UserAnswersContext);
+	const {
+		testLevel,
+		userAnswers,
+		setUserAnswers,
+		userResults,
+		setUserResults,
+	} = useContext(PlacementTestContext);
 
-	const questionsObj = { A: ['a', 'a'], B: ['b', 'b'], C: ['c', 'c'] };
-	console.log(questionsObj[testLevel]);
-	console.log(userAnswers);
+	useEffect(() => {
+		setUserAnswers(
+			questions[testLevel].reduce((accu, el, i) => {
+				accu[i + 1] = '';
+				return accu;
+			}, {})
+		);
+	}, []);
 
-	// if testLevel === A -->
-	// if testLevel === B -->
-	// if testLevel === C -->
-	const questions = [
-		{
-			question: 'What _____________ when i called?',
-			answer1: 'Was you doing',
-			answer2: 'You doing',
-			answer3: 'You did',
-			answer4: 'Were you doing',
-			correct: 'Were you doing',
-		},
-		{
-			question: 'Which word form is not correct',
-			answer1: 'Clothing',
-			answer2: 'Clotheful',
-			answer3: 'Clothe',
-			answer4: 'Clothed',
-			correct: 'Clothe',
-		},
-		{
-			question: 'Nothing ______________ done when the boss is away.',
-			answer1: 'Becomes',
-			answer2: 'Gets',
-			answer3: 'Been',
-			answer4: 'Got',
-			correct: 'Gets',
-		},
-		{
-			question:
-				'English grammar is the worst language of any language. No, it is not. German grammar _______________.',
-			answer1: 'Was worse',
-			answer2: 'Is worse',
-			answer3: 'Is worst',
-			answer4: 'Is good',
-			correct: 'Is worse',
-		},
-		{
-			question:
-				'______________________ you like ? I like Grapes and Mangoes.',
-			answer1: 'What kind of fruit',
-			answer2: 'what type of fruit do',
-			answer3: 'How many fruits do',
-			answer4: 'Types of fruits do',
-			correct: 'What kind of fruit',
-		},
-	];
-	const [currentQuestion, setQurrentQuestion] = useState(1);
+	useEffect(() => {}, []);
+
+	// console.log(userAnswers);
+	let [currentQuestion, setCurrentQuestion] = useState(0);
+	// console.log(userAnswers)
+	// console.log(currentQuestion);
+	// console.log(questions[testLevel]);
+
+	const handleRadioChange = (val) => {
+		const objCopy = { ...userAnswers };
+		objCopy[currentQuestion + 1] = val;
+		setUserAnswers(objCopy);
+	};
+
+	const handleNext = () => {
+		if (currentQuestion === questions[testLevel].length - 1) return;
+		setCurrentQuestion(currentQuestion + 1);
+	};
+
+	const handlePrev = () => {
+		if (currentQuestion === 0) return;
+		setCurrentQuestion(currentQuestion - 1);
+	};
+	const determineUsersLevel = (num) => {
+		if (num >= 0 && num <= 20) return 'Below Elementary';
+		if (num >= 21 && num <= 35) return 'Elementary';
+		if (num >= 36 && num <= 60) return 'Pre-intermediate';
+		if (num >= 61 && num <= 85) return 'Intermediate';
+		if (num >= 86 && num <= 100) return 'Upper Intermediate';
+	};
+	const handleFinish = () => {
+		console.log(userAnswers);
+		const userCorrectAnswers = questions[testLevel].reduce(
+			(accu, el, i) => {
+				if (userAnswers[i + 1] === el.correct) return accu + 1;
+				return accu;
+			},
+			0
+		);
+		console.log(userCorrectAnswers);
+		const userLevel = determineUsersLevel(userCorrectAnswers);
+		console.log(userLevel);
+
+		const objCopy = { ...userResults };
+		objCopy.testLevel = testLevel;
+		objCopy.totalCorrect = userCorrectAnswers;
+		objCopy.level = userLevel;
+		objCopy.answers = userAnswers;
+		setUserResults(objCopy);
+		console.log(userResults);
+	};
 
 	return (
 		<div className={classes.test__container}>
@@ -75,44 +89,109 @@ function Test() {
 
 			<div className={classes.info__container}>
 				<span className={classes.info__text}>Question No.</span>
-				<span className={classes.question__no}>{currentQuestion}</span>
+				<span className={classes.question__no}>
+					{currentQuestion + 1}
+				</span>
 				<span> / </span>
-				<span className={classes.question__no}>{questions.length}</span>
+				<span className={classes.question__no}>
+					{questions[testLevel].length}
+				</span>
 			</div>
+			<p className={classes.explanation__text}>
+				Choose the best answer and select it. If you do not know the
+				answer, leave it blank.
+			</p>
 
-			<div>
-				<h2>{questions[currentQuestion].question}</h2>
-
-				<div className={classes.questions__container}>
-					<div className={`${classes.question__option}`}>
-						<label htmlFor="1">
-							{questions[currentQuestion].answer1}
-						</label>
-						<input type="radio" name="x" id="1" />
-					</div>
-					<div className={`${classes.question__option}`}>
-						<label htmlFor="2">
-							{questions[currentQuestion].answer2}
-						</label>
-						<input type="radio" name="x" id="2" />
-					</div>
-					<div className={`${classes.question__option}`}>
-						<label htmlFor="3">
-							{questions[currentQuestion].answer3}
-						</label>
-						<input type="radio" name="x" id="3" />
-					</div>
-					<div className={`${classes.question__option}`}>
-						<label htmlFor="4">
-							{questions[currentQuestion].answer4}
-						</label>
-						<input type="radio" name="x" id="4" />
-					</div>
+			<h2>{questions[testLevel][currentQuestion].question}</h2>
+			{/*                  ////////////////////////////////////////////////         */}
+			<div className={classes.questions__container}>
+				<div
+					className={`${classes.question__option} ${
+						userAnswers[currentQuestion + 1] === 'a'
+							? classes.selected
+							: ''
+					}`}
+				>
+					<label htmlFor="a">
+						{questions[testLevel][currentQuestion].a}
+					</label>
+					<input
+						onChange={() => handleRadioChange('a')}
+						type="radio"
+						name="x"
+						id="a"
+						value={'a'}
+						checked={userAnswers[currentQuestion + 1] === 'a'}
+					/>
 				</div>
+				<div
+					className={`${classes.question__option} ${
+						userAnswers[currentQuestion + 1] === 'b'
+							? classes.selected
+							: ''
+					} `}
+				>
+					<label htmlFor="b">
+						{questions[testLevel][currentQuestion].b}
+					</label>
+					<input
+						onChange={() => handleRadioChange('b')}
+						type="radio"
+						name="x"
+						id="b"
+						value={'b'}
+						checked={userAnswers[currentQuestion + 1] === 'b'}
+					/>
+				</div>
+				<div
+					className={`${classes.question__option} ${
+						userAnswers[currentQuestion + 1] === 'c'
+							? classes.selected
+							: ''
+					}`}
+				>
+					<label htmlFor="c">
+						{questions[testLevel][currentQuestion].c}
+					</label>
+					<input
+						onChange={() => handleRadioChange('c')}
+						type="radio"
+						name="x"
+						id="c"
+						value={'c'}
+						checked={userAnswers[currentQuestion + 1] === 'c'}
+					/>
+				</div>
+
+				{questions[testLevel][currentQuestion].d ? (
+					<div
+						className={`${classes.question__option} ${
+							userAnswers[currentQuestion + 1] === 'd'
+								? classes.selected
+								: ''
+						} `}
+					>
+						<label htmlFor="d">
+							{questions[testLevel][currentQuestion].c}
+						</label>
+						<input
+							onChange={() => handleRadioChange('d')}
+							type="radio"
+							name="x"
+							id="d"
+							value={'d'}
+							checked={userAnswers[currentQuestion + 1] === 'd'}
+						/>
+					</div>
+				) : (
+					''
+				)}
 			</div>
+			{/* /////////////////////////////////////////////////////////////// */}
 			<div className={classes.btn__container}>
 				{currentQuestion !== 0 ? (
 					<button
+						onClick={() => handlePrev()}
 						className={`${classes.btn__previous} ${classes.btn}`}
 					>
 						<HiArrowLeft className={classes.arrLeft} />
@@ -121,12 +200,18 @@ function Test() {
 				) : (
 					''
 				)}
-				{currentQuestion === questions.length - 1 ? (
-					<button className={`${classes.btn__next} ${classes.btn}`}>
+				{currentQuestion === questions[testLevel].length - 1 ? (
+					<button
+						onClick={() => handleFinish()}
+						className={`${classes.btn__next} ${classes.btn}`}
+					>
 						Finish
 					</button>
 				) : (
-					<button className={`${classes.btn__next} ${classes.btn}`}>
+					<button
+						onClick={() => handleNext()}
+						className={`${classes.btn__next} ${classes.btn}`}
+					>
 						Next
 						<HiArrowRight className={classes.arrRight} />
 					</button>
