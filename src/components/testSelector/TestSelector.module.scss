@@ -18,15 +18,18 @@
 				cursor: pointer;
 			}
 			input {
+				padding-left: 0.3rem;
 				width: 11rem;
 				height: 2rem;
 				border: none;
 				outline: none;
 				border-radius: $border-radius;
-				background-color: rgb(215, 215, 215);
-				color: $footerColor;
+				background-color: $inputBackground;
+				color: $mainBlack;
 				font-weight: bold;
-				font-size: 1.3rem;
+				font-size: 1.15rem;
+				font-style: italic;
+				letter-spacing: 0.1rem;
 			}
 		}
 	}
@@ -70,7 +73,8 @@
 			font-weight: 500;
 			font-style: italic;
 			&:hover {
-				background-color: #f1d9c5;
+				background-color: $buttonHover;
+				color: $buttonText;
 				border-radius: $border-radius;
 			}
 
@@ -89,7 +93,8 @@
 			}
 		}
 		.selected {
-			background-color: #f1d9c5;
+			background-color: $buttonHover;
+			color: $buttonText;
 			border-radius: $border-radius;
 		}
 	}
@@ -112,12 +117,12 @@
 		.btn__start {
 			outline: none;
 			border: none;
-			color: white;
+			color: $buttonText;
 			padding: 0.5rem 1rem;
 			font-size: 1.6rem;
 			font-weight: bold;
 			letter-spacing: 0.1rem;
-			background-color: $footerColor;
+			background-color: $buttonColor;
 			border-radius: $border-radius;
 			cursor: pointer;
 			transition: all ease 0.2s;

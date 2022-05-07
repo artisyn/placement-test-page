@@ -1,5 +1,14 @@
 @import '../../styles/variables.scss';
 
+@mixin finish__btn {
+	@include btn;
+	width: 11rem;
+	font-size: 1.3rem;
+	padding: 0.3rem;
+	height: 3rem;
+	@include displayFlexCenter;
+}
+
 .finish__container {
 	@include displayFlexCenter;
 	flex-direction: column;
@@ -7,6 +16,9 @@
 	padding: 1rem;
 	h2 {
 		text-align: center;
+		.icon__thumb {
+			color: $navColor;
+		}
 	}
 	.results__container {
 		.result {
@@ -21,23 +33,44 @@
 		@include displayFlexCenter;
 		gap: 1rem;
 		.mail__btn {
-			width: 11rem;
-			font-size: 1.3rem;
-			font-weight: bold;
-			padding: 0.3rem 0.6rem;
-			border-radius: $border-radius;
-			cursor: pointer;
-			background-color: $buttonColor;
-			border: none;
-			outline: none;
+			@include finish__btn;
+			.icon__mail {
+				display: none;
+				font-size: 2.6rem;
+			}
+			@media only screen and (max-width: $medium) {
+				font-size: 1rem;
+				width: 8rem;
+				// height: 2.5rem;
+				.swapWord {
+					display: none;
+				}
 
-			&:hover {
-				background-color: $buttonHover;
+				.icon__mail {
+					width: 100%;
+					display: block;
+				}
+			}
+		}
+
+		.try__btn {
+			@include finish__btn;
+
+			.icon__try {
+				display: none;
+				font-size: 2.1rem;
 			}
 
 			@media only screen and (max-width: $medium) {
-				font-size: 1.1rem;
+				font-size: 1rem;
 				width: 8rem;
+				// height: 2.5rem;
+				.swapWord {
+					display: none;
+				}
+				.icon__try {
+					display: block;
+				}
 			}
 		}
 	}

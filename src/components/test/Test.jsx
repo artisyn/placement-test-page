@@ -89,7 +89,7 @@ function Test({ finishTest }) {
 				</div>
 				<div className={classes.difficulty__container}>
 					Test difficulty :
-					<span className={classes.difficulty}> {testLevel} </span>
+					<h2 className={classes.difficulty}> {testLevel} </h2>
 				</div>
 			</div>
 

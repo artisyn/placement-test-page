@@ -1,21 +1,28 @@
 @import '../styles/variables.scss';
 
 .main__container {
-	border-radius: 2rem;
 	padding: 1rem 2rem;
 	@include displayFlexCenter;
 	flex-direction: column;
 	max-width: $content-width;
 	h1 {
-		color: $footerColor;
-	}
-	.text__number {
-		background-color: $buttonColor;
-		padding: 0.1rem;
-		border-radius: 0.3rem;
+		color: $mainBlack;
 	}
 	.text__heading {
-		margin-left: 1rem;
 		font-style: italic;
+	}
+	h2 {
+		width: 100%;
+		text-align: left;
+		.text__number {
+			margin-right: 0.5rem;
+			background-color: $navBackground;
+			padding: 0.5rem;
+			border-radius: 0.3rem;
+			color: $navColor;
+		}
+	}
+	p {
+		text-align: justify;
 	}
 }

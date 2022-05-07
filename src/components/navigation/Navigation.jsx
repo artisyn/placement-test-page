@@ -33,7 +33,7 @@ function Navigation() {
 					onClick={() => changePage('about')}
 					className={`${classes.link} ${
 						currentPage === 'about' ? classes.active : ''
-					}`}
+					} ${menuOpen ? classes.burgerColors : ''}`}
 					to={'/about'}
 				>
 					About
@@ -42,7 +42,7 @@ function Navigation() {
 					onClick={() => changePage('guide')}
 					className={`${classes.link} ${
 						currentPage === 'guide' ? classes.active : ''
-					}`}
+					} ${menuOpen ? classes.burgerColors : ''}`}
 					to={'/guide'}
 				>
 					Test Guide
@@ -54,7 +54,7 @@ function Navigation() {
 					}`}
 					to={'/test'}
 				>
-					Test
+					Take Test
 				</Link>
 				{menuOpen && (
 					<AiOutlineClose

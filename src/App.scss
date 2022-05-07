@@ -2,15 +2,15 @@
 
 .App {
 	font-family: $poppins;
-	background-color: $mainLight;
+	background-color: $mainWhite;
 	::-moz-selection {
 		/* Code for Firefox */
-		color: $mainLight;
-		background: $navMain;
+		color: $mainWhite;
+		background: $navBackground;
 	}
 
 	::selection {
-		color: $mainLight;
-		background: $navMain;
+		color: $mainWhite;
+		background: $navBackground;
 	}
 }

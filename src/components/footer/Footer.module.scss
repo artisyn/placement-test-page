@@ -1,10 +1,10 @@
 @import '../../styles/variables.scss';
 
 .footer__container {
-	background-color: $footerColor;
+	background-color: $footerBackground;
 	height: 8rem;
 	width: 100%;
 	@include displayFlexCenter;
 	flex-direction: column;
-	color: $mainLight;
+	color: $footerColor;
 }

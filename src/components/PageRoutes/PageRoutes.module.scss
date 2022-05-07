@@ -2,10 +2,10 @@
 
 .page__container {
 	padding: 5rem 1rem 1rem 1rem; // 5rem -  adjust for sticky nav
-	background-color: $mainLight;
+	background-color: $mainWhite;
 	display: grid;
 	justify-items: center;
 	align-items: start;
 	min-height: 100vh;
-	color: $mainDark;
+	color: $mainBlack;
 }

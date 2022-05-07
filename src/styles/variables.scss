@@ -3,17 +3,66 @@
 
 $poppins: 'Poppins', sans-serif;
 
-//colors
+//colors 1
 
-$navMain: rgb(182, 210, 219);
-$navLight: rgb(254, 254, 254);
-$navLightHover: rgb(186, 185, 185);
-$mainDark: rgb(33, 33, 33);
-$mainLight: rgb(247, 246, 245);
-$buttonColor: rgb(232, 205, 186);
-$buttonHover: rgb(180, 159, 145);
-$footerColor: rgb(64, 83, 95);
-$mainBlue: #3b566a;
+// $navBackground: #ae7261;
+// $navColor: #ffe9e3;
+// $navColorDarker: #cdbab4;
+// $navHover: #ffffff;
+// $mainLinkColor: #cdbab4;
+// $mainLinkHover: #ffe9e3;
+// $mainLinkBColor: #573e34;
+// $mainLinkBHover: #815b41;
+// $footerBackground: #715044;
+// $footerColor: #b48e80;
+// $mainBlack: #212121;
+// $mainWhite: #f7f6f5;
+// $buttonColor: #573e34;
+// $buttonHover: #815b41;
+// $buttonText: #ffe9e3;
+// $inputBackground: #e3e0e0;
+// $burgerColor: #dadada;
+// $burgerColorHover: #f5f3f3;
+
+//colors 2
+
+// $navBackground: #79ad7d;
+// $navColor: #2f4858;
+// $navHover: #346b79;
+// $mainLinkColor: #2f4858;
+// $mainLinkHover: #346b79;
+// $mainLinkBColor: #aec17b;
+// $mainLinkBHover: #96a66a;
+// $footerBackground: #2e616e;
+// $footerColor: #5aae95;
+// $mainBlack: #212121;
+// $mainWhite: #f7f6f5;
+// $buttonColor: #aec17b;
+// $buttonHover: #96a66a;
+// $buttonText: #2f4858;
+// $inputBackground: #e3e0e0;
+// $burgerColor: #dadada;
+// $burgerColorHover: #f5f3f3;
+
+//colors 3
+
+$navBackground: #162b3d;
+$navColor: #f5b4d3;
+$navHover: #f9ece4;
+$mainLinkColor: #f5b4d3;
+$mainLinkHover: #f9ece4;
+$mainLinkBColor: #636081;
+$mainLinkBHover: #514f69;
+$footerBackground: #636081;
+$footerColor: #c296bc;
+$mainBlack: #212121;
+$mainWhite: #f7f6f5;
+$buttonColor: #917ba0;
+$buttonHover: #6b5b76;
+$buttonText: #f9ece4;
+$inputBackground: #e3e0e0;
+$burgerColor: #dadada;
+$burgerColorHover: #f5f3f3;
 
 //spacing
 
@@ -56,4 +105,21 @@ $large: 1200px;
 	justify-content: flex-start;
 }
 
+@mixin btn {
+	outline: none;
+	border: none;
+	color: $buttonText;
+	padding: 0.5rem 1rem;
+	font-size: 1.6rem;
+	font-weight: bold;
+	letter-spacing: 0.1rem;
+	background-color: $buttonColor;
+	border-radius: $border-radius;
+	cursor: pointer;
+	transition: all ease 0.3s;
 
+	&:hover {
+		background-color: $buttonHover;
+		transform: translateX(0.15rem);
+	}
+}

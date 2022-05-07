@@ -3,12 +3,19 @@ import { PlacementTestContext } from '../../context';
 import classes from '../finish/Finish.module.scss';
 import MailTo from '../mailto/MailTo';
 import { EMAIL } from '../../Data';
+import { BiMailSend } from 'react-icons/bi';
+import { BsArrowCounterclockwise } from 'react-icons/bs';
+import { FaRegThumbsUp } from 'react-icons/fa';
 
 function Finish() {
 	const { userResults } = useContext(PlacementTestContext);
 
 	const [str, setStr] = useState('');
 	const [strForMail, setStrForMail] = useState('');
+
+	const handleTryAgain = () => {
+		console.log('try again');
+	};
 
 	useEffect(() => {
 		let tempStr = '';
@@ -31,7 +38,10 @@ function Finish() {
 
 	return (
 		<div className={classes.finish__container}>
-			<h2>Congratulations on finishing the test ! 👍</h2>
+			<h2>
+				Congratulations on finishing the test !{' '}
+				<FaRegThumbsUp className={classes.icon__thumb} />{' '}
+			</h2>
 			<div className={classes.results__container}>
 				<h3>Your Results : </h3>
 
@@ -64,10 +74,20 @@ function Finish() {
 					subject={`Placement Test Results ${userResults.name}`}
 					body={strForMail}
 				>
-					<button className={classes.mail__btn}>Mail Results</button>
+					<button className={classes.mail__btn}>
+						<span className={classes.swapWord}>Mail Results</span>
+						<BiMailSend className={classes.icon__mail} />
+					</button>
 				</MailTo>
 
-				<button className={classes.mail__btn}> Try Again </button>
+				<button
+					onClick={() => handleTryAgain()}
+					className={classes.try__btn}
+				>
+					{' '}
+					<span className={classes.swapWord}>Try Again</span>{' '}
+					<BsArrowCounterclockwise className={classes.icon__try} />{' '}
+				</button>
 			</div>
 		</div>
 	);

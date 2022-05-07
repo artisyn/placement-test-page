@@ -85,6 +85,7 @@ function TestSelector({ startTest }) {
 						type="radio"
 						name="level"
 						id="levela"
+						checked={testLevel === 'A'}
 						data-letter={'A'}
 					/>
 				</div>
@@ -104,6 +105,7 @@ function TestSelector({ startTest }) {
 						type="radio"
 						name="level"
 						id="levelb"
+						checked={testLevel === 'B'}
 						data-letter={'B'}
 					/>
 				</div>
