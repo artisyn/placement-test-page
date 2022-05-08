@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react';
+import React, { useState } from 'react';
 import './App.scss';
 import { BrowserRouter } from 'react-router-dom';
 import Navigation from './components/navigation/Navigation.jsx';
