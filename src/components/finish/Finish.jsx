@@ -7,14 +7,25 @@ import { BiMailSend } from 'react-icons/bi';
 import { BsArrowCounterclockwise } from 'react-icons/bs';
 import { FaRegThumbsUp } from 'react-icons/fa';
 
-function Finish() {
-	const { userResults } = useContext(PlacementTestContext);
+function Finish({ startTestOver }) {
+	const { userResults, setUserResults } = useContext(PlacementTestContext);
 
 	const [str, setStr] = useState('');
 	const [strForMail, setStrForMail] = useState('');
 
 	const handleTryAgain = () => {
 		console.log('try again');
+		setUserResults({
+			testLevel: `${userResults.testLevel}`,
+			totalCorrect: 0,
+			level: '',
+			answers: {},
+			name: `${userResults.name}`,
+			surname: `${userResults.surname}`,
+			date: '',
+		});
+
+		startTestOver();
 	};
 
 	useEffect(() => {
@@ -27,7 +38,7 @@ function Finish() {
 
 	useEffect(() => {
 		setStrForMail(` %0A%0A 
-        Name: ${userResults.name} %0A%0A
+        Name: ${userResults.name} ${userResults.surname} %0A%0A
         Test Level: ${userResults.testLevel} %0A%0A
         Total Correct Answers: ${userResults.totalCorrect} %0A%0A
         Language Level: ${userResults.level} %0A%0A

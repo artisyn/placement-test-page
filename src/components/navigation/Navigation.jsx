@@ -1,12 +1,15 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import classes from '../navigation/Navigation.module.scss';
 import { Link } from 'react-router-dom';
 import { BiMenuAltRight } from 'react-icons/bi';
 import { AiOutlineClose } from 'react-icons/ai';
+import { PlacementTestContext } from '../../context';
 
 function Navigation() {
+	const { currentPage, setCurrentPage } = useContext(PlacementTestContext);
+
 	const [menuOpen, setMenuOpen] = useState(false);
-	const [currentPage, setCurrentPage] = useState('about');
+	// const [currentPage, setCurrentPage] = useState('about');
 
 	const openMenu = () => {
 		setMenuOpen(true);
@@ -17,6 +20,10 @@ function Navigation() {
 	};
 
 	const changePage = (val) => {
+		window.scrollTo({
+			top: 0,
+			behavior: 'smooth',
+		});
 		setCurrentPage(val);
 		setMenuOpen(false);
 	};

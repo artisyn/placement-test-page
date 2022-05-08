@@ -7,6 +7,7 @@ import Footer from './components/footer/Footer';
 import { PlacementTestContext } from '../src/context/index';
 
 function App() {
+	const [currentPage, setCurrentPage] = useState('about');
 	const [testLevel, setTestLevel] = useState('');
 	const [userAnswers, setUserAnswers] = useState({});
 	const [userResults, setUserResults] = useState({
@@ -15,6 +16,7 @@ function App() {
 		level: '',
 		answers: {},
 		name: '',
+		surname: '',
 		date: '',
 	});
 
@@ -27,6 +29,8 @@ function App() {
 				setTestLevel,
 				userResults,
 				setUserResults,
+				currentPage,
+				setCurrentPage,
 			}}
 		>
 			<BrowserRouter>

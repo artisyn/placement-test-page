@@ -7,6 +7,10 @@ import Finish from '../components/finish/Finish';
 function TakeTest() {
 	const [testStage, setTestStage] = useState('start');
 
+	const startTestOver = () => {
+		setTestStage('start');
+	};
+
 	const startTest = () => {
 		setTestStage('test');
 	};
@@ -23,7 +27,11 @@ function TakeTest() {
 				''
 			)}
 			{testStage === 'test' ? <Test finishTest={finishTest} /> : ''}
-			{testStage === 'finish' ? <Finish /> : ''}
+			{testStage === 'finish' ? (
+				<Finish startTestOver={startTestOver} />
+			) : (
+				''
+			)}
 		</div>
 	);
 }

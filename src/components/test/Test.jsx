@@ -77,7 +77,10 @@ function Test({ finishTest }) {
 		objCopy.date = intApi;
 		setUserResults(objCopy);
 
-		finishTest();
+		let finishRequest = window.confirm('Finish and see Results ?');
+		if (finishRequest) {
+			finishTest();
+		}
 	};
 
 	return (
@@ -85,7 +88,10 @@ function Test({ finishTest }) {
 			<div className={classes.candidate__container}>
 				<div className={classes.candidate}>
 					Name :
-					<span className={classes.name}> {userResults.name} </span>
+					<span className={classes.name}>
+						{' '}
+						{userResults.name} {userResults.surname}{' '}
+					</span>
 				</div>
 				<div className={classes.difficulty__container}>
 					Test difficulty :

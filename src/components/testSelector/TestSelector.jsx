@@ -1,4 +1,4 @@
-import React, { useContext, useRef, useState } from 'react';
+import React, { useContext, useEffect, useRef, useState } from 'react';
 import { PlacementTestContext } from '../../context';
 import classes from '../testSelector/TestSelector.module.scss';
 
@@ -20,11 +20,19 @@ function TestSelector({ startTest }) {
 		if (testLevel === '' || !nameInput.current.value) return;
 
 		const objCopy = { ...userResults };
-		objCopy.name = `${nameInput.current.value} ${surnameInput.current.value}`;
+		objCopy.name = `${nameInput.current.value}`;
+		objCopy.surname = `${surnameInput.current.value}`;
 		setUserResults(objCopy);
 
 		startTest();
 	};
+	useEffect(() => {
+		if (userResults.name) {
+			nameInput.current.value = userResults.name;
+			surnameInput.current.value = userResults.surname;
+			setUserNameInput(userResults.name);
+		}
+	}, []);
 
 	return (
 		<div className={classes.selector__container}>
