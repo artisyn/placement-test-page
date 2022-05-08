@@ -22,7 +22,7 @@ function Test({ finishTest }) {
 		);
 	}, []);
 
-	let [currentQuestion, setCurrentQuestion] = useState(45);
+	let [currentQuestion, setCurrentQuestion] = useState(0);
 
 	const handleRadioChange = (val) => {
 		const objCopy = { ...userAnswers };
@@ -183,7 +183,7 @@ function Test({ finishTest }) {
 						} `}
 					>
 						<label htmlFor="d">
-							{questions[testLevel][currentQuestion].c}
+							{questions[testLevel][currentQuestion].d}
 						</label>
 						<input
 							onChange={() => handleRadioChange('d')}
