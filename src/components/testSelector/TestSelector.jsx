@@ -23,7 +23,10 @@ function TestSelector({ startTest }) {
 		objCopy.name = `${nameInput.current.value}`;
 		objCopy.surname = `${surnameInput.current.value}`;
 		setUserResults(objCopy);
-
+		window.scrollTo({
+			top: 0,
+			behavior: 'smooth',
+		});
 		startTest();
 	};
 	useEffect(() => {

@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import { BiMenuAltRight } from 'react-icons/bi';
 import { AiOutlineClose } from 'react-icons/ai';
 import { PlacementTestContext } from '../../context';
+import logo from '../../logo.png';
 
 function Navigation() {
 	const { currentPage, setCurrentPage } = useContext(PlacementTestContext);
@@ -30,7 +31,12 @@ function Navigation() {
 
 	return (
 		<nav className={classes.navigation}>
-			<div className={classes.logo}>LOGO</div>
+			<div className={classes.logo__container}>
+				<div className={classes.logo}>
+					<img src={logo} alt="Logo" />
+				</div>
+			</div>
+
 			<div
 				className={`${classes.pages__container} ${
 					menuOpen ? classes.menu__open : ''

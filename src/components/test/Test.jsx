@@ -5,6 +5,13 @@ import { HiArrowLeft, HiArrowRight } from 'react-icons/hi';
 import { questions } from '../../Data';
 
 function Test({ finishTest }) {
+	const scrollToTop = () => {
+		window.scrollTo({
+			top: 0,
+			behavior: 'smooth',
+		});
+	};
+
 	const {
 		testLevel,
 		userAnswers,
@@ -33,11 +40,13 @@ function Test({ finishTest }) {
 	const handleNext = () => {
 		if (currentQuestion === questions[testLevel].length - 1) return;
 		setCurrentQuestion(currentQuestion + 1);
+		scrollToTop();
 	};
 
 	const handlePrev = () => {
 		if (currentQuestion === 0) return;
 		setCurrentQuestion(currentQuestion - 1);
+		scrollToTop();
 	};
 	const determineUsersLevel = (num) => {
 		if (num >= 0 && num <= 20) return 'Below Elementary';
@@ -81,6 +90,7 @@ function Test({ finishTest }) {
 		if (finishRequest) {
 			finishTest();
 		}
+		scrollToTop();
 	};
 
 	return (

@@ -13,16 +13,29 @@
 	@media only screen and (min-width: $large) {
 		padding-right: 20vw;
 	}
-	.logo {
-		background-color: rgb(183, 183, 183);
-		width: 6rem;
-		height: 3rem;
-		color: rgb(194, 126, 0);
-		padding: 1rem;
-		font-size: 1.2rem;
-		font-weight: bold;
-		border-radius: 1rem;
-		@include displayFlexCenter;
+
+	//v1.
+	.logo__container {
+		position: relative;
+
+		.logo {
+			background-color: $navBackground;
+			overflow: hidden;
+			width: 4.5rem;
+			height: 4.5rem;
+			border-radius: $border-radius;
+			border: 2px solid black;
+			@include displayFlexCenter;
+			@media only screen and(min-width: $large) {
+				position: absolute;
+				top: -1.5rem;
+				width: 9rem;
+				height: 9rem;
+			}
+			img {
+				max-height: 100%;
+			}
+		}
 	}
 
 	.pages__container {
@@ -50,6 +63,7 @@
 			background-color: $mainLinkBColor;
 			border-radius: $border-radius;
 			padding: 0.4rem 1rem;
+
 			&:hover {
 				background-color: $mainLinkBHover;
 				color: $mainLinkHover;
