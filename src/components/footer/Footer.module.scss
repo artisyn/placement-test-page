@@ -2,9 +2,18 @@
 
 .footer__container {
 	background-color: $footerBackground;
+	background: $footerGradient;
 	height: 8rem;
 	width: 100%;
 	@include displayFlexCenter;
 	flex-direction: column;
 	color: $footerColor;
+	p {
+		.link {
+			margin: 0 0.5rem;
+			outline: none;
+			text-decoration: none;
+			color: $footerColor;
+		}
+	}
 }

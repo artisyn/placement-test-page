@@ -10,6 +10,7 @@
 }
 
 .finish__container {
+	font-size: 1.1rem;
 	@include displayFlexCenter;
 	flex-direction: column;
 	gap: 1rem;
@@ -17,7 +18,7 @@
 	h2 {
 		text-align: center;
 		.icon__thumb {
-			color: $navColor;
+			color: $navBackground;
 		}
 	}
 	.results__container {

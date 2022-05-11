@@ -86,9 +86,9 @@ function TestSelector({ startTest }) {
 					} `}
 				>
 					<label htmlFor="levela">
-						Test level
-						<span className={classes.selector__letter}> A </span>
-						(50 questions)
+						Level{' '}
+						<span className={classes.selector__letter}> A </span>{' '}
+						Test (50 questions)
 					</label>
 
 					<input
@@ -106,9 +106,9 @@ function TestSelector({ startTest }) {
 					} `}
 				>
 					<label htmlFor="levelb">
-						Test level
-						<span className={classes.selector__letter}> B </span>
-						(100 questions)
+						Level{' '}
+						<span className={classes.selector__letter}> B </span>{' '}
+						Test (100 questions)
 					</label>
 
 					<input

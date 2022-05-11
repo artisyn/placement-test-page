@@ -113,6 +113,7 @@
 		background-color: rgba(0, 0, 0, 0.8);
 	}
 	.burger {
+		color: $navColor;
 		font-size: 3rem;
 		font-weight: bold;
 		display: none;
@@ -120,7 +121,7 @@
 		transition: all ease-in 0.3s;
 		&:hover {
 			transform: scale(1.05);
-			color: $navColor;
+			color: $navHover;
 		}
 
 		@media only screen and (max-width: $medium) {

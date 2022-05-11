@@ -40,13 +40,11 @@ function Test({ finishTest }) {
 	const handleNext = () => {
 		if (currentQuestion === questions[testLevel].length - 1) return;
 		setCurrentQuestion(currentQuestion + 1);
-		scrollToTop();
 	};
 
 	const handlePrev = () => {
 		if (currentQuestion === 0) return;
 		setCurrentQuestion(currentQuestion - 1);
-		scrollToTop();
 	};
 	const determineUsersLevel = (num) => {
 		if (num >= 0 && num <= 20) return 'Below Elementary';
@@ -115,7 +113,7 @@ function Test({ finishTest }) {
 					{currentQuestion + 1}
 				</span>
 				<span> / </span>
-				<span className={classes.question__no}>
+				<span className={classes.question__all}>
 					{questions[testLevel].length}
 				</span>
 			</div>

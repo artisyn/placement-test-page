@@ -6,22 +6,13 @@ function About() {
 		<div className={classes.main__container}>
 			<h1>About</h1>
 			<p>
-				Lorem ipsum dolor sit, amet consectetur adipisicing elit.
-				Mollitia ex sapiente adipisci pariatur dolorem at unde officia
-				eveniet consectetur, necessitatibus, iure saepe ipsa veniam
-				eaque id quaerat quisquam, quasi commodi!
+				Are you planning to take an English course, but don't know where
+				to begin?
 			</p>
 			<p>
-				Lorem ipsum dolor sit, amet consectetur adipisicing elit.
-				Mollitia ex sapiente adipisci pariatur dolorem at unde officia
-				eveniet consectetur, necessitatibus, iure saepe ipsa veniam
-				eaque id quaerat quisquam, quasi commodi!
-			</p>
-			<p>
-				Lorem ipsum dolor sit, amet consectetur adipisicing elit.
-				Mollitia ex sapiente adipisci pariatur dolorem at unde officia
-				eveniet consectetur, necessitatibus, iure saepe ipsa veniam
-				eaque id quaerat quisquam, quasi commodi!
+				Our website is the right place to start the journey! Not only
+				can you find out your real level of language proficiency, but
+				you can also have some fun with various vocabulary tests. Enjoy!
 			</p>
 		</div>
 	);

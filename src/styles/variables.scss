@@ -3,84 +3,50 @@
 
 $poppins: 'Poppins', sans-serif;
 
-//colors 1
-
-// $navBackground: #ae7261;
-// $navColor: #ffe9e3;
-// $navColorDarker: #cdbab4;
-// $navHover: #ffffff;
-// $mainLinkColor: #cdbab4;
-// $mainLinkHover: #ffe9e3;
-// $mainLinkBColor: #573e34;
-// $mainLinkBHover: #815b41;
-// $footerBackground: #715044;
-// $footerColor: #b48e80;
+// $navBackground: #d6702f;
+// $navColor: #fff5eb;
+// $navHover: white;
+// $mainLinkColor: #fff5eb;
+// $mainLinkHover: #f7f6f5;
+// $mainLinkBColor: #6e6e6e;
+// $mainLinkBHover: #a1a1a1;
+// $footerBackground: #935729;
+// $footerColor: #ffe8d1;
 // $mainBlack: #212121;
 // $mainWhite: #f7f6f5;
-// $buttonColor: #573e34;
-// $buttonHover: #815b41;
-// $buttonText: #ffe9e3;
+// $buttonColor: #6e6e6e;
+// $buttonHover: #a1a1a1;
+// $buttonText: #f7f6f5;
 // $inputBackground: #e3e0e0;
 // $burgerColor: #dadada;
 // $burgerColorHover: #f5f3f3;
 
-//colors 2
-
-// $navBackground: #79ad7d;
-// $navColor: #2f4858;
-// $navHover: #346b79;
-// $mainLinkColor: #2f4858;
-// $mainLinkHover: #346b79;
-// $mainLinkBColor: #aec17b;
-// $mainLinkBHover: #96a66a;
-// $footerBackground: #2e616e;
-// $footerColor: #5aae95;
-// $mainBlack: #212121;
-// $mainWhite: #f7f6f5;
-// $buttonColor: #aec17b;
-// $buttonHover: #96a66a;
-// $buttonText: #2f4858;
-// $inputBackground: #e3e0e0;
-// $burgerColor: #dadada;
-// $burgerColorHover: #f5f3f3;
-
-//colors 3
-
-// $navBackground: #162b3d;
-// $navColor: #f5b4d3;
-// $navHover: #f9ece4;
-// $mainLinkColor: #f5b4d3;
-// $mainLinkHover: #f9ece4;
-// $mainLinkBColor: #636081;
-// $mainLinkBHover: #514f69;
-// $footerBackground: #636081;
-// $footerColor: #c296bc;
-// $mainBlack: #212121;
-// $mainWhite: #f7f6f5;
-// $buttonColor: #917ba0;
-// $buttonHover: #6b5b76;
-// $buttonText: #f9ece4;
-// $inputBackground: #e3e0e0;
-// $burgerColor: #dadada;
-// $burgerColorHover: #f5f3f3;
-
-$navBackground: #d6702f;
+$navBackground: #fc4a1a;
 $navColor: #fff5eb;
 $navHover: white;
 $mainLinkColor: #fff5eb;
 $mainLinkHover: #f7f6f5;
-$mainLinkBColor: #6e6e6e;
-$mainLinkBHover: #a1a1a1;
-$footerBackground: #935729;
-$footerColor: #ffe8d1;
+$mainLinkBColor: #f7b733;
+$mainLinkBHover: #eca10b;
+$footerBackground: #666666;
+$footerGradient: linear-gradient(
+	to bottom,
+	#6ec2b6,
+	#5fc3b4,
+	#4fc4b2,
+	#3ac5b0,
+	#19c6ad
+);
+$footerColor: black;
 $mainBlack: #212121;
 $mainWhite: #f7f6f5;
-$buttonColor: #6e6e6e;
-$buttonHover: #a1a1a1;
+$buttonColor: #f7b733;
+$buttonHover: #eca10b;
 $buttonText: #f7f6f5;
 $inputBackground: #e3e0e0;
 $burgerColor: #dadada;
 $burgerColorHover: #f5f3f3;
+$siteBackground: #6ec2b6;
 
 //spacing
 

@@ -1,12 +1,16 @@
 @import '../styles/variables.scss';
 
 .main__container {
+	font-size: 1.3rem;
 	padding: 1rem 2rem;
-	@include displayFlexCenter;
-	flex-direction: column;
-	gap: 4rem;
-	max-width: $content-width;
+
+	max-width: 700px;
 	h1 {
-		color: $mainBlack;
+		color: $mainWhite;
+		text-align: center;
+	}
+	p {
+		line-height: 2rem;
+		text-align: justify;
 	}
 }

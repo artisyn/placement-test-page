@@ -1,28 +1,28 @@
 @import '../styles/variables.scss';
 
 .main__container {
+	font-size: 1.3rem;
 	padding: 1rem 2rem;
-	@include displayFlexCenter;
-	flex-direction: column;
-	max-width: $content-width;
+	max-width: 700px;
 	h1 {
-		color: $mainBlack;
-	}
-	.text__heading {
-		font-style: italic;
-	}
-	h2 {
-		width: 100%;
-		text-align: left;
-		.text__number {
-			margin-right: 0.5rem;
-			background-color: $navBackground;
-			padding: 0.5rem;
-			border-radius: 0.3rem;
-			color: $navColor;
-		}
+		color: $mainWhite;
+		text-align: center;
 	}
 	p {
+		span {
+			font-size: 1.3rem;
+			font-weight: bold;
+			.special__symbol {
+				margin-right: 0.5rem;
+				font-size: 2rem;
+				vertical-align: middle;
+				color: $navBackground;
+			}
+		}
 		text-align: justify;
+		line-height: 2rem;
+	}
+	@media only screen and (max-width: $medium) {
+		font-size: 1.1rem;
 	}
 }

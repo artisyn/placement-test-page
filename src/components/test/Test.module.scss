@@ -72,10 +72,21 @@
 		}
 
 		.question__no {
-			color: $mainBlack;
-			font-size: 1.7rem;
+			border-radius: $border-radius;
+			text-align: center;
+			min-width: 2.5rem;
+			font-size: 1.6rem;
+			font-style: normal;
 			font-weight: bold;
-			font-style: italic;
+			background-color: $navBackground;
+			color: $navColor;
+			padding: 0.3rem 0.5rem;
+		}
+		.question__all {
+			font-size: 1.6rem;
+			font-weight: bold;
+			font-style: normal;
+			color: $navColor;
 		}
 
 		@media only screen and (max-width: $medium) {
