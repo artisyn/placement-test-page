@@ -21,7 +21,7 @@ export default function TestGuide() {
 
 			<p>
 				<span>
-					N.B. <CgDanger className={classes.special__symbol} />
+					<CgDanger className={classes.special__symbol} />
 				</span>
 				To get a more reliable interpretation of the results please DO
 				NOT tick any option randomly and just leave it blank.
