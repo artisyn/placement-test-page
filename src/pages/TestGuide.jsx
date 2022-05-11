@@ -28,7 +28,7 @@ export default function TestGuide() {
 			</p>
 
 			<p>
-				As soon as you finish the test your will have the option to send
+				As soon as you finish the test you will have an option to send
 				it to our teachers who you can contact and ask for advice
 				regarding improving your English, choosing the relevant course
 				or textbooks, etc.
