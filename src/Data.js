@@ -1132,4 +1132,5 @@ export const answersEvaluation = {
 	UpperIntermediate: [86, 100],
 };
 
+
 export const EMAIL = 'testEmail@gmail.com';
